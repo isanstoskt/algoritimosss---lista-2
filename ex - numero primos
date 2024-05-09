@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int primo(int num);
+int somaPrimos(int n);
+
+int main() {
+    int n;
+    
+    printf("Digite a quantidade de números primos que deseja somar: ");
+    scanf("%d", &n);
+   
+    printf("A soma dos primeiros %d números primos é: %d\n", n, somaPrimos(n));
+
+    return 0;
+}
+
+int primo(int num) {
+    if (num <= 1) return 0; 
+    if (num <= 3) return 1; 
+    
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return 0; 
+    }
+
+    return 1; 
+}
+
+int somaPrimos(int n) {
+    int soma = 0;
+    int num = 2; 
+
+    while (n > 0) {
+        if (primo(num)) {
+            soma += num;
+            n--;
+        }
+        num++;
+    }
+
+    return soma;
+}
