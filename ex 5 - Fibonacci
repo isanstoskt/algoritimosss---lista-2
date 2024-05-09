@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+// Protótipo da função
+int fibonacci(int n);
+
+int main() {
+    int n;
+    
+    printf("Digite o valor de n para calcular o n-ésimo termo da série de Fibonacci: ");
+    scanf("%d", &n);
+
+    printf("O %d-ésimo termo da série de Fibonacci é: %d\n", n, fibonacci(n));
+
+    return 0;
+}
+
+int fibonacci(int n) {
+    if (n <= 1) // Casos base: F(0) = 0 e F(1) = 1
+        return n;
+
+    int termo_atual = 1;
+    int termo_anterior = 0;
+
+    for (int i = 2; i <= n; i++) {
+        int proximo_termo = termo_atual + termo_anterior;
+        termo_anterior = termo_atual;
+        termo_atual = proximo_termo;
+    }
+
+    return termo_atual;
+}
