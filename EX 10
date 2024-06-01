@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int maiorEntreTres(int num1, int num2, int num3) {
+    int maior = num1;
+
+    if (num2 > maior)
+        maior = num2;
+    if (num3 > maior)
+        maior = num3;
+
+    return maior;
+}
+
+int main() {
+    int num1, num2, num3;
+
+  
+    printf("Digite três números separados por espaços: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+
+    int maior = maiorEntreTres(num1, num2, num3);
+
+    printf("O maior dos três números é: %d\n", maior);
+
+    return 0;
+}
